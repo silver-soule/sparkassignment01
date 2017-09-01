@@ -19,22 +19,23 @@ object RDDOperations extends App {
   val logger = Logger.getLogger("spark-app")
 
   //answer 1
-  val fileData = sc.textFile("src/main/resources/pagecounts-20151201-220000")
+  val fileData = sc.textFile("src/main/resources/pagecounts-20151201-220000").cache()
   //nothing as its a lazy evaluation
 
   //answer 2
   val topData = fileData.zipWithIndex().filter {
     case (_, key) => key < 10
   }.keys.collect().toList.mkString("\n")
-  new PrintWriter(s"$topPagesOPFile") {
-    write(s"$topData")
+
+  new PrintWriter(topPagesOPFile) {
+    write(topData)
     close()
   }
   // data written to src/main/resources/toppages.txt
 
   // answer 3
   val pageCount = fileData.count()
-  logger.info(s"$pageCount")
+  logger.info(pageCount)
   // total count- 7598006
 
   //answer 4
