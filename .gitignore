@@ -1,0 +1,8 @@
+*pagecounts-20151201-220000
+*.class
+*.log
+.idea
+.idea/*
+.idea_modules
+.idea_modules/*
+target
