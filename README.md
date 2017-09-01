@@ -1,4 +1,4 @@
-#Format of solutions -
+# Format of solutions -
 
 Solution number
 query
