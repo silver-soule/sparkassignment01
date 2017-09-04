@@ -49,6 +49,7 @@ object RDDOperations extends App {
 
 
   // answer 6
+
   val highlyRequestedData = fileData.map { data =>
     val op = data.split(" ")
     (op(1), op(2).toInt)
